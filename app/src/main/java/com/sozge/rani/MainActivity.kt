@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//test
+//test commit
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
