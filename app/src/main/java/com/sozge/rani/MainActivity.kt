@@ -11,9 +11,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Attractions
 import androidx.compose.material.icons.outlined.AutoStories
 import androidx.compose.material.icons.outlined.Diversity2
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Spa
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -68,9 +70,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 contentDescription = ""
             )
             Icon(
-                imageVector = Icons.Outlined.Diversity2,
+                painter = painterResource(id = R.drawable.planet),
                 contentDescription = ""
             )
+            Icon(
+                imageVector = Icons.Outlined.Spa,
+                contentDescription = ""
+            )
+
         }
     }
 }
