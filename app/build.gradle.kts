@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.sozge.rani"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sozge.rani"
@@ -66,4 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Extended Icons
+    implementation("androidx.compose.material:material-icons-extended-android:1.7.8")
 }
