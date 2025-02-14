@@ -17,15 +17,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -41,9 +39,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sozge.rani.components.CustomText
+import com.sozge.rani.components.DreamCard
 import com.sozge.rani.ui.theme.RaniTheme
 
 class MainActivity : ComponentActivity() {
@@ -52,7 +51,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         hideNavigationBar()
-        // DDEMO
 
         setContent {
             RaniTheme {
@@ -86,18 +84,55 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     var selectedTab by remember { mutableStateOf("Home") }
     Column(
-        Modifier.fillMaxSize(),
+        Modifier
+            .fillMaxSize()
+            .background(Color.Black),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        FloatingBottomNavBar(selectedTab =selectedTab, onTabSelected = {selectedTab = it})
+        CustomText(text ="Rüya Yorumla")
+        LazyRow {
+            items(1) {
+                DreamCard(
+                    title = "Anlatarak Yorumlat",
+                    description = "Kendi rüyalarınızı anlatarak yorumlatın",
+                    image = R.drawable.purplebackground,
+                    isHorizontalCard = true,
+                )
+                DreamCard(
+                    title = "Seçerek Yorumlat",
+                    description = "Önceden belirlediğimiz kategoriler ile yap!",
+                    image = R.drawable.darkbluebackground,
+                    isHorizontalCard = true,
+                )
+            }
+        }
+        CustomText(text ="Rüya Yorumla")
+        LazyRow {
+            items(1) {
+                DreamCard(
+                    title = "Anlat!",
+                    description = "Kendi rüyalarınızı anlatarak yorumlatın",
+                    image = R.drawable.purplebackground,
+                    isHorizontalCard = false
+                )
+                DreamCard(
+                    title = "Seç!",
+                    description = "Önceden belirlediğimiz kategoriler ile yap!",
+                    image = R.drawable.darkbluebackground,
+                    isHorizontalCard = false
+                )
+            }
+        }
+        FloatingBottomNavBar(selectedTab = selectedTab, onTabSelected = { selectedTab = it })
     }
 }
+
 
 @Composable
 fun FloatingBottomNavBar(
     selectedTab: String,
-    onTabSelected: (String) -> Unit
+    onTabSelected: (String) -> Unit,
 ) {
     val tabs = listOf(
         "Home" to R.drawable.home,
@@ -146,7 +181,7 @@ fun FloatingBottomNavBar(
                         modifier = Modifier.size(animatedSize.dp),
                         tint = if (isSelected) Color.Magenta else Color.White
                     )
-                    AnimatedVisibility(visible = !isSelected){
+                    AnimatedVisibility(visible = !isSelected) {
                         Text(
                             text = title,
                             fontSize = 12.sp,
@@ -159,3 +194,4 @@ fun FloatingBottomNavBar(
         }
     }
 }
+
