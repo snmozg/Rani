@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         hideNavigationBar()
+        // DDEMO
 
         setContent {
             RaniTheme {
