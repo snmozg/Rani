@@ -38,11 +38,11 @@ fun DreamCard(
 ) {
     if (isHorizontalCard) {
         ElevatedCard(
-            elevation = CardDefaults.cardElevation(defaultElevation = 9.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
             onClick = { },
             modifier = Modifier
                 .height(160.dp)
-                .width(300.dp)
+                .width(270.dp)
                 .padding(2.dp),
         ) {
             Box() {
@@ -82,8 +82,8 @@ fun DreamCard(
             elevation = CardDefaults.cardElevation(defaultElevation = 9.dp),
             onClick = { },
             modifier = Modifier
-                .height(250.dp)
-                .width(200.dp)
+                .height(240.dp)
+                .width(180.dp)
                 .padding(2.dp),
         ) {
             Box() {
