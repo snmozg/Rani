@@ -90,7 +90,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CustomText(text ="Rüya Yorumla")
+        CustomText(text = "Rüya Yorumla")
         LazyRow {
             items(1) {
                 DreamCard(
@@ -102,12 +102,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 DreamCard(
                     title = "Seçerek Yorumlat",
                     description = "Önceden belirlediğimiz kategoriler ile yap!",
-                    image = R.drawable.darkbluebackground,
+                    image = R.drawable.orangebackground,
                     isHorizontalCard = true,
                 )
             }
         }
-        CustomText(text ="Rüya Yorumla")
+        CustomText(text = "Rüya Yorumla")
         LazyRow {
             items(1) {
                 DreamCard(
@@ -119,7 +119,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 DreamCard(
                     title = "Seç!",
                     description = "Önceden belirlediğimiz kategoriler ile yap!",
-                    image = R.drawable.darkbluebackground,
+                    image = R.drawable.orangebackground,
                     isHorizontalCard = false
                 )
             }
