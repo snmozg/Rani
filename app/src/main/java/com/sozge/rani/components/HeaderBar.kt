@@ -38,7 +38,7 @@ fun HeaderBar(
 ) {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.White,
+            containerColor = MaterialTheme.colorScheme.background,
             titleContentColor = MaterialTheme.colorScheme.onBackground
         ),
         title = {
