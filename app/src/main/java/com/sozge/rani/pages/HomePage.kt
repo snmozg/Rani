@@ -1,5 +1,6 @@
 package com.sozge.rani.pages
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -24,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.sozge.rani.R
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.DreamCard
@@ -32,7 +35,7 @@ import com.sozge.rani.components.HeaderBar
 import com.sozge.rani.components.ZodiacCard
 
 @Composable
-fun HomePage() {
+fun HomePage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Home") }
 
     Scaffold(
@@ -46,7 +49,8 @@ fun HomePage() {
         bottomBar = {
             FloatingBottomNavBar(
                 selectedTab = selectedTab,
-                onTabSelected = { selectedTab = it }
+                onTabSelected = { selectedTab = it },
+                navController
             )
         }
     ) { innerPadding ->
@@ -54,7 +58,7 @@ fun HomePage() {
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .background(Color.White),
+                .background(MaterialTheme.colorScheme.background),
             verticalArrangement = Arrangement.SpaceEvenly,
         ) {
             Column(
@@ -71,11 +75,12 @@ fun HomePage() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(100.dp),
+                    border = BorderStroke(0.2.dp, MaterialTheme.colorScheme.primary)
                 ) {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(Color.White),
+                            .background(MaterialTheme.colorScheme.primary),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -83,7 +88,8 @@ fun HomePage() {
                             text = "Bugün için bir manifest oluştur",
                             fontSize = 18.sp,
                             textAlign = TextAlign.Center,
-                            fontWeight = FontWeight.Normal
+                            fontWeight = FontWeight.Normal,
+                            color = MaterialTheme.colorScheme.onBackground
                         )
                     }
                 }
@@ -136,10 +142,4 @@ fun HomePage() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun HomePagePreview() {
-    HomePage()
 }

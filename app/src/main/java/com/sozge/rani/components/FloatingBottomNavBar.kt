@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,12 +29,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.sozge.rani.R
 
 @Composable
 fun FloatingBottomNavBar(
     selectedTab: String,
     onTabSelected: (String) -> Unit,
+    navController: NavController
 ) {
     val tabs = listOf(
         "Home" to R.drawable.home,
@@ -47,12 +50,12 @@ fun FloatingBottomNavBar(
             .padding(horizontal = 24.dp, vertical = 16.dp)
             .height(90.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(Color.Black)
+            .background(Color(0xFF161616))
             .shadow(10.dp, shape = RoundedCornerShape(30.dp)),
         contentAlignment = Alignment.Center
     ) {
         Row(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().background(Color(0xFF161616)),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -73,14 +76,23 @@ fun FloatingBottomNavBar(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier
-                        .clickable { onTabSelected(title) }
+                        .clickable {
+                            onTabSelected(title)
+                            when (title) {
+                                "Home" -> navController.navigate("HomePage")
+                                "Dream" -> navController.navigate("DreamPage")
+                                //"Zodiac" -> navController.navigate("zodiac")
+                                //"Spa" -> navController.navigate("spa")
+                            }
+                        }
                         .padding(top = animatedPadding)
                 ) {
                     Icon(
                         painter = painterResource(id = icon),
                         contentDescription = title,
                         modifier = Modifier.size(animatedSize.dp),
-                        tint = if (isSelected) Color.Magenta else Color.White
+                        tint = if (isSelected) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.onBackground
                     )
                     AnimatedVisibility(visible = !isSelected) {
                         Text(

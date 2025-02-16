@@ -15,34 +15,30 @@ private val DarkColorScheme = darkColorScheme(
     primary = palatinateBlue,
     secondary = chinaRose,
     background = newBlack,
-    onBackground = newWhite
+    onBackground = newWhite,
+    tertiary = lightChinaRose
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = palatinateBlue,
     secondary = chinaRose,
     background = newBlack,
-    onBackground = newWhite
+    onBackground = newWhite,
+    tertiary = lightChinaRose
 )
 
 @Composable
 fun RaniTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(LocalContext.current) else
-                dynamicLightColorScheme(LocalContext.current)
-        }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val colors = if (darkTheme) {
+        DarkColorScheme
+    } else {
+        LightColorScheme
     }
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = colors,
         typography = Typography,
         content = content
     )

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.sozge.rani.R
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.DreamCard
@@ -26,7 +28,7 @@ import com.sozge.rani.components.HeaderBar
 import com.sozge.rani.components.InterpretationCard
 
 @Composable
-fun DreamPage() {
+fun DreamPage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Dream") }
 
     Scaffold(
@@ -41,7 +43,8 @@ fun DreamPage() {
         bottomBar = {
             FloatingBottomNavBar(
                 selectedTab = selectedTab,
-                onTabSelected = { selectedTab = it }
+                onTabSelected = { selectedTab = it },
+                navController
             )
         }
     ){ innerPadding ->
@@ -49,7 +52,7 @@ fun DreamPage() {
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .background(Color.White),
+                .background(MaterialTheme.colorScheme.background),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Column(
@@ -98,10 +101,4 @@ fun DreamPage() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun DreamPagePreview() {
-    DreamPage()
 }

@@ -60,13 +60,16 @@ fun HeaderBar(
                         )
                         CustomText(
                             text = "Rani'ye Hoş Geldiniz!",
-                            color = Color.Black,
+                            color = MaterialTheme.colorScheme.onBackground,
                             fontSize = 14.sp
                         )
                     }
                 }
             } else {
-                CustomText(text = title)
+                CustomText(
+                    text = title,
+                    color = MaterialTheme.colorScheme.onBackground,
+                    )
             }
         },
 
@@ -82,8 +85,8 @@ fun HeaderBar(
                             .fillMaxSize()
                             .padding(3.dp),
                         imageVector = Icons.Outlined.KeyboardArrowLeft,
-                        contentDescription = "Menu Button",
-                        tint = Color.Black
+                        contentDescription = "Back Button",
+                        tint = MaterialTheme.colorScheme.primary
                     )
                 }
             }
@@ -100,15 +103,9 @@ fun HeaderBar(
                         .padding(3.dp),
                     painter = painterResource(id = R.drawable.userinfos),
                     contentDescription = "User Infos Button",
-                    tint = Color.Black
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         }
     )
-}
-
-@Preview
-@Composable
-fun HeaderBarPreview() {
-    HeaderBar()
 }

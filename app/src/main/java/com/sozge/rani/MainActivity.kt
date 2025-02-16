@@ -8,6 +8,7 @@ import android.view.WindowInsetsController
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.sozge.rani.navigation.NavController
 import com.sozge.rani.ui.theme.RaniTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +17,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         hideNavigationBar()
         setContent {
-            RaniTheme {
+            RaniTheme(darkTheme = false) {
+                NavController()
             }
         }
     }

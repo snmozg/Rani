@@ -1,6 +1,7 @@
 package com.sozge.rani.components
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,7 +19,7 @@ fun CustomText(
     text: String,
     fontSize: TextUnit = 32.sp,
     fontWeight: FontWeight = FontWeight.Bold,
-    color: Color = Color.Black,
+    color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Start,
     padding: Dp = 0.dp
 ) {

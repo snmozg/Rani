@@ -15,3 +15,6 @@ val palatinateBlue = Color(0xFF5438DC)
 val chinaRose = Color(0xFFB24C63)
 val newBlack = Color(0xFF141414)
 val newWhite = Color(0xFFE5E5E5)
+
+val lightNewBlack = Color(0xFF161616)
+val lightChinaRose = Color(0xFF6C8397)
