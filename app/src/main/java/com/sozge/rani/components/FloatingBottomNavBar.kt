@@ -83,7 +83,7 @@ fun FloatingBottomNavBar(
                             when (title) {
                                 "Home" -> navController.navigate("HomePage")
                                 "Dream" -> navController.navigate("DreamPage")
-                                //"Zodiac" -> navController.navigate("zodiac")
+                                "Zodiac" -> navController.navigate("ZodiacPage")
                                 //"Spa" -> navController.navigate("spa")
                             }
                         }

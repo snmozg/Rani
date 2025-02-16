@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sozge.rani.pages.DreamPage
 import com.sozge.rani.pages.HomePage
+import com.sozge.rani.pages.ZodiacPage
 
 @Composable
 fun NavController() {
@@ -19,6 +20,6 @@ fun NavController() {
     ) {
         composable(route = "HomePage") { HomePage(navController) }
         composable(route = "DreamPage") { DreamPage(navController) }
-
+        composable(route = "ZodiacPage") { ZodiacPage(navController) }
     }
 }
