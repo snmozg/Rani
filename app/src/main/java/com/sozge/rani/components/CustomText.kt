@@ -17,7 +17,7 @@ import com.sozge.rani.utils.myFont
 @Composable
 fun CustomText(
     text: String,
-    fontSize: TextUnit = 32.sp,
+    fontSize: TextUnit = 28.sp,
     fontWeight: FontWeight = FontWeight.Bold,
     color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign = TextAlign.Start,

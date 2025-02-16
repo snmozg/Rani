@@ -61,10 +61,10 @@ fun InterpretationCard(
             .clip(RoundedCornerShape(16.dp))
             .shadow(8.dp, RoundedCornerShape(16.dp))
             .clickable { expanded = !expanded },
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161616))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiary)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().background(Color(0xFF161616)),
+            modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.tertiary),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -105,10 +105,4 @@ fun InterpretationCard(
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewInterpretationCard() {
-    InterpretationCard()
 }

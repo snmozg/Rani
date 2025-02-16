@@ -3,6 +3,7 @@ package com.sozge.rani.pages
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -65,7 +67,7 @@ fun HomePage(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 CustomText(text = "Günün Manifesti")
 
@@ -77,29 +79,44 @@ fun HomePage(navController: NavController) {
                         .height(100.dp),
                     border = BorderStroke(0.2.dp, MaterialTheme.colorScheme.primary)
                 ) {
-                    Column(
+                    Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(MaterialTheme.colorScheme.primary),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
+                            .background(
+                                Brush.verticalGradient(
+                                    colors = listOf(
+                                        Color(0xFF991433),
+                                        Color(0xFFB24C63),
+                                        Color(0xFFB46073)
+                                    )
+                                )
+                            )
                     ) {
-                        CustomText(
-                            text = "Bugün için bir manifest oluştur",
-                            fontSize = 18.sp,
-                            textAlign = TextAlign.Center,
-                            fontWeight = FontWeight.Normal,
-                            color = MaterialTheme.colorScheme.onBackground
-                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(16.dp),  // İçerik için padding ekledim
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            CustomText(
+                                text = "Bugün için bir manifest oluştur",
+                                fontSize = 18.sp,
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Normal,
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
                     }
                 }
+
             }
 
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 CustomText(text = "Rüyanı Yorumlayalım!")
 
@@ -125,18 +142,24 @@ fun HomePage(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 CustomText(text = "Burçlar")
 
                 LazyRow {
                     items(1) {
-                        ZodiacCard("İkizler")
-                        ZodiacCard("İkizler")
-                        ZodiacCard("İkizler")
-                        ZodiacCard("İkizler")
-                        ZodiacCard("İkizler")
-                        ZodiacCard("İkizler")
+                        ZodiacCard("Koç", R.drawable.aries)
+                        ZodiacCard("Boğa", R.drawable.taurus)
+                        ZodiacCard("İkizler", R.drawable.gemini)
+                        ZodiacCard("Yengeç", R.drawable.cancer)
+                        ZodiacCard("Aslan", R.drawable.leo)
+                        ZodiacCard("Başak", R.drawable.virgo)
+                        ZodiacCard("Terazi", R.drawable.libra)
+                        ZodiacCard("Akrep", R.drawable.scorpio)
+                        ZodiacCard("Yay", R.drawable.sagittarius)
+                        ZodiacCard("Oğlak", R.drawable.capricorn)
+                        ZodiacCard("Kova", R.drawable.aquarius)
+                        ZodiacCard("Balık", R.drawable.pisces)
                     }
                 }
             }

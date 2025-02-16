@@ -61,7 +61,7 @@ fun HeaderBar(
                         CustomText(
                             text = "Rani'ye Hoş Geldiniz!",
                             color = MaterialTheme.colorScheme.onBackground,
-                            fontSize = 14.sp
+                            fontSize = 18.sp
                         )
                     }
                 }
@@ -69,6 +69,7 @@ fun HeaderBar(
                 CustomText(
                     text = title,
                     color = MaterialTheme.colorScheme.onBackground,
+                    fontSize = 24.sp,
                     )
             }
         },

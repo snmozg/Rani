@@ -50,12 +50,14 @@ fun FloatingBottomNavBar(
             .padding(horizontal = 24.dp, vertical = 16.dp)
             .height(90.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xFF161616))
+            .background(MaterialTheme.colorScheme.tertiary)
             .shadow(10.dp, shape = RoundedCornerShape(30.dp)),
         contentAlignment = Alignment.Center
     ) {
         Row(
-            modifier = Modifier.fillMaxSize().background(Color(0xFF161616)),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.tertiary),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {

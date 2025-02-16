@@ -3,6 +3,7 @@ package com.sozge.rani.pages
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,31 +55,33 @@ fun DreamPage(navController: NavController) {
                 .padding(innerPadding)
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.background),
-            verticalArrangement = Arrangement.SpaceBetween,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                CustomText(text ="Rüyanı Nasıl Yorumlamamızı İstersin?")
+                CustomText(text ="Rüyanı Nasıl Yorumlayalım?")
 
-                LazyRow {
-                    items(1){
-                        DreamCard(
-                            title = "Anlat!",
-                            description = "Kendi rüyalarınızı anlatarak yorumlatın",
-                            image = R.drawable.purplebackground,
-                            isHorizontalCard = false
-                        )
-                        DreamCard(
-                            title = "Seç!",
-                            description = "Önceden belirlediğimiz kategoriler ile yap!",
-                            image = R.drawable.darkbluebackground,
-                            isHorizontalCard = false
-                        )
-                    }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    DreamCard(
+                        title = "Anlat!",
+                        description = "Kendi rüyalarınızı anlatarak yorumlatın",
+                        image = R.drawable.purplebackground,
+                        isHorizontalCard = false
+                    )
+                    DreamCard(
+                        title = "Seç!",
+                        description = "Önceden belirlediğimiz kategoriler ile yap!",
+                        image = R.drawable.darkbluebackground,
+                        isHorizontalCard = false
+                    )
                 }
             }
 
@@ -85,7 +89,7 @@ fun DreamPage(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ){
                 CustomText(text ="Rüya Tabirlerim")
 

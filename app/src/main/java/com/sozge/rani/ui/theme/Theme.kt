@@ -16,7 +16,7 @@ private val DarkColorScheme = darkColorScheme(
     secondary = chinaRose,
     background = newBlack,
     onBackground = newWhite,
-    tertiary = lightChinaRose
+    tertiary = lightNewBlack
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -24,7 +24,7 @@ private val LightColorScheme = lightColorScheme(
     secondary = chinaRose,
     background = newBlack,
     onBackground = newWhite,
-    tertiary = lightChinaRose
+    tertiary = lightNewBlack
 )
 
 @Composable
