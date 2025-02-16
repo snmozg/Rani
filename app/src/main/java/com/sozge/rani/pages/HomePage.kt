@@ -41,7 +41,9 @@ fun HomePage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Home") }
 
     Scaffold(
-        modifier = Modifier.fillMaxSize().background(Color.White),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
         topBar = {
             HeaderBar(
                 isHomeScreen = true,
@@ -95,7 +97,7 @@ fun HomePage(navController: NavController) {
                         Column(
                             modifier = Modifier
                                 .fillMaxSize()
-                                .padding(16.dp),  // İçerik için padding ekledim
+                                .padding(16.dp),
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
@@ -109,7 +111,6 @@ fun HomePage(navController: NavController) {
                         }
                     }
                 }
-
             }
 
             Column(
