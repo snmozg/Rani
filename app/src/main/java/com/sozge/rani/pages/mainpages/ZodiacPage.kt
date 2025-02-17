@@ -1,11 +1,10 @@
-package com.sozge.rani.pages
+package com.sozge.rani.pages.mainpages
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,7 +37,7 @@ import com.sozge.rani.components.HeaderBar
 
 @Composable
 fun ZodiacPage(navController: NavController) {
-    var selectedTab by remember { mutableStateOf("Zodiac") }
+    var selectedTab by remember { mutableStateOf("Burçlar") }
     val burclar = listOf(
         "Koç",
         "Boğa",

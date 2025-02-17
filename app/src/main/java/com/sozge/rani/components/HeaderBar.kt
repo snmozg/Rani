@@ -1,6 +1,8 @@
 package com.sozge.rani.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,6 +39,8 @@ fun HeaderBar(
     isEnableBackButton: Boolean = true,
     title: String = "Rani"
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.background,
@@ -101,7 +106,11 @@ fun HeaderBar(
                 Icon(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(3.dp),
+                        .padding(3.dp)
+                        .clickable(
+                            interactionSource = interactionSource,
+                            indication = null
+                        ){},
                     painter = painterResource(id = R.drawable.userinfos),
                     contentDescription = "User Infos Button",
                     tint = MaterialTheme.colorScheme.primary

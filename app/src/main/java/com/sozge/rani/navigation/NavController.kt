@@ -5,9 +5,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.sozge.rani.pages.DreamPage
-import com.sozge.rani.pages.HomePage
-import com.sozge.rani.pages.ZodiacPage
+import com.sozge.rani.pages.mainpages.DreamPage
+import com.sozge.rani.pages.mainpages.ExplainPage
+import com.sozge.rani.pages.mainpages.HomePage
+import com.sozge.rani.pages.mainpages.ZodiacPage
 
 @Composable
 fun NavController() {
@@ -21,5 +22,6 @@ fun NavController() {
         composable(route = "HomePage") { HomePage(navController) }
         composable(route = "DreamPage") { DreamPage(navController) }
         composable(route = "ZodiacPage") { ZodiacPage(navController) }
+        composable(route = "ExplainPage") { ExplainPage(navController) }
     }
 }

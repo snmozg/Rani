@@ -5,6 +5,7 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -39,10 +41,10 @@ fun FloatingBottomNavBar(
     navController: NavController
 ) {
     val tabs = listOf(
-        "Home" to R.drawable.home,
-        "Dream" to R.drawable.dream,
-        "Zodiac" to R.drawable.planet,
-        "Spa" to R.drawable.spa,
+        "Ana Sayfa" to R.drawable.home,
+        "Tabirler" to R.drawable.dream,
+        "Burçlar" to R.drawable.planet,
+        "Yükselen" to R.drawable.spa,
     )
     Box(
         modifier = Modifier
@@ -78,15 +80,21 @@ fun FloatingBottomNavBar(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier
-                        .clickable {
-                            onTabSelected(title)
-                            when (title) {
-                                "Home" -> navController.navigate("HomePage")
-                                "Dream" -> navController.navigate("DreamPage")
-                                "Zodiac" -> navController.navigate("ZodiacPage")
-                                //"Spa" -> navController.navigate("spa")
-                            }
-                        }
+                        .then(
+                            if (!isSelected) {
+                                Modifier.clickable(
+                                    indication = null,
+                                    interactionSource = remember { MutableInteractionSource() }
+                                ) {
+                                    onTabSelected(title)
+                                    when (title) {
+                                        "Ana Sayfa" -> navController.navigate("HomePage")
+                                        "Tabirler" -> navController.navigate("DreamPage")
+                                        "Burçlar" -> navController.navigate("ZodiacPage")
+                                    }
+                                }
+                            } else Modifier
+                        )
                         .padding(top = animatedPadding)
                 ) {
                     Icon(

@@ -1,7 +1,9 @@
-package com.sozge.rani.pages
+package com.sozge.rani.pages.mainpages
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,7 +27,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -38,7 +39,8 @@ import com.sozge.rani.components.ZodiacCard
 
 @Composable
 fun HomePage(navController: NavController) {
-    var selectedTab by remember { mutableStateOf("Home") }
+    var selectedTab by remember { mutableStateOf("Ana Sayfa") }
+    val interactionSource = remember { MutableInteractionSource() }
 
     Scaffold(
         modifier = Modifier
@@ -92,7 +94,10 @@ fun HomePage(navController: NavController) {
                                         Color(0xFFB46073)
                                     )
                                 )
-                            )
+                            ).clickable(
+                                interactionSource = interactionSource,
+                                indication = null
+                            ){}
                     ) {
                         Column(
                             modifier = Modifier
@@ -128,7 +133,9 @@ fun HomePage(navController: NavController) {
                             description = "Kendi rüyalarınızı anlatarak yorumlatın",
                             image = R.drawable.purplebackground,
                             isHorizontalCard = true,
-                        )
+                        ){
+                            navController.navigate("ExplainPage")
+                        }
                         DreamCard(
                             title = "Seçerek Yorumlat",
                             description = "Önceden belirlediğimiz kategoriler ile yap!",

@@ -35,11 +35,12 @@ fun DreamCard(
     description: String,
     image: Int,
     isHorizontalCard: Boolean,
+    onClick: () -> Unit = {}
 ) {
     if (isHorizontalCard) {
         ElevatedCard(
             elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
-            onClick = { },
+            onClick = { onClick() },
             modifier = Modifier
                 .height(160.dp)
                 .width(270.dp)
