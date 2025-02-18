@@ -1,4 +1,4 @@
-package com.sozge.rani.pages.mainpages
+package com.sozge.rani.pages.mainpages.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +37,9 @@ fun DreamPage(navController: NavController) {
             .background(Color.White),
         topBar = {
             HeaderBar(
-                title = "Rüya Tabirleri"
+                title = "Rüya Tabirleri",
+                isEnableBackButton = false,
+                navController = navController
             )
         },
         bottomBar = {
@@ -73,7 +75,9 @@ fun DreamPage(navController: NavController) {
                         description = "Kendi rüyalarınızı anlatarak yorumlatın",
                         image = R.drawable.purplebackground,
                         isHorizontalCard = false
-                    )
+                    ){
+                        navController.navigate("ExplainPage")
+                    }
                     DreamCard(
                         title = "Seç!",
                         description = "Önceden belirlediğimiz kategoriler ile yap!",

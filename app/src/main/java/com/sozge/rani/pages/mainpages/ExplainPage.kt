@@ -25,7 +25,7 @@ import com.sozge.rani.R
 import com.sozge.rani.components.CustomButton
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.CustomTextInput
-import com.sozge.rani.components.ExplainDreamButton
+import com.sozge.rani.components.ExpandedButton
 import com.sozge.rani.components.HeaderBar
 
 @Composable
@@ -38,7 +38,8 @@ fun ExplainPage(navController: NavController) {
             .background(Color.White),
         topBar = {
             HeaderBar(
-                title = "Rüyanı Anlat"
+                title = "Rüyanı Anlat",
+                navController = navController
             )
         },
     ) { innerPadding ->
@@ -124,8 +125,12 @@ fun ExplainPage(navController: NavController) {
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
-            ){
-                ExplainDreamButton()
+            ) {
+                ExpandedButton(
+                    text = "Rüyanı Yorumla!",
+                ) {
+                    // TODO: Implement the functionality
+                }
             }
         }
     }

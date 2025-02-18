@@ -81,7 +81,7 @@ fun DreamCard(
     } else {
         ElevatedCard(
             elevation = CardDefaults.cardElevation(defaultElevation = 9.dp),
-            onClick = { },
+            onClick = { onClick() },
             modifier = Modifier
                 .height(240.dp)
                 .width(180.dp)

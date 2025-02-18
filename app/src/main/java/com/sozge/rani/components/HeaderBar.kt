@@ -21,25 +21,36 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.sozge.rani.R
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HeaderBar(
     isHomeScreen: Boolean = false,
     isEnableBackButton: Boolean = true,
-    title: String = "Rani"
+    title: String = "Rani",
+    navController: NavController
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+
+    val dateFormat = remember { SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()) }
+    val currentDate = remember { mutableStateOf(dateFormat.format(Date())) }
+
 
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
@@ -59,7 +70,7 @@ fun HeaderBar(
                         verticalArrangement = Arrangement.Center
                     ) {
                         CustomText(
-                            text = "27/05/2025",
+                            text = currentDate.value,
                             color = Color.LightGray,
                             fontSize = 12.sp
                         )
@@ -83,7 +94,7 @@ fun HeaderBar(
             if (isEnableBackButton) {
                 IconButton(
                     onClick = {
-                        println("Navigation Icon Clicked")
+                        navController.popBackStack()
                     },
                 ) {
                     Icon(

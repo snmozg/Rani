@@ -1,4 +1,4 @@
-package com.sozge.rani.pages.mainpages
+package com.sozge.rani.pages.mainpages.main
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
@@ -60,7 +60,9 @@ fun ZodiacPage(navController: NavController) {
             .background(Color.White),
         topBar = {
             HeaderBar(
-                title = "Burçlar"
+                title = "Burçlar",
+                isEnableBackButton = false,
+                navController = navController
             )
         },
         bottomBar = {

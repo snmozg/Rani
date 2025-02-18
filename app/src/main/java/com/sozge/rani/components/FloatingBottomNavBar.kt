@@ -91,6 +91,7 @@ fun FloatingBottomNavBar(
                                         "Ana Sayfa" -> navController.navigate("HomePage")
                                         "Tabirler" -> navController.navigate("DreamPage")
                                         "Burçlar" -> navController.navigate("ZodiacPage")
+                                        "Yükselen" -> navController.navigate("RisingPage")
                                     }
                                 }
                             } else Modifier

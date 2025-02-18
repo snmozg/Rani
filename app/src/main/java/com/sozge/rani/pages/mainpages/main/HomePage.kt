@@ -1,4 +1,4 @@
-package com.sozge.rani.pages.mainpages
+package com.sozge.rani.pages.mainpages.main
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -36,17 +36,16 @@ import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.DreamCard
 import com.sozge.rani.components.FloatingBottomNavBar
 import com.sozge.rani.components.HeaderBar
-import com.sozge.rani.components.ManifestList
 import com.sozge.rani.components.ZodiacCard
+import com.sozge.rani.components.manifestList
 
 @Composable
 fun HomePage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Ana Sayfa") }
     val interactionSource = remember { MutableInteractionSource() }
     var randomSentence by remember { mutableStateOf("") }
-
     LaunchedEffect(Unit) {
-        randomSentence = ManifestList.getRandomSentence()
+        randomSentence = manifestList.random()
     }
 
     Scaffold(
@@ -56,7 +55,8 @@ fun HomePage(navController: NavController) {
         topBar = {
             HeaderBar(
                 isHomeScreen = true,
-                isEnableBackButton = false
+                isEnableBackButton = false,
+                navController = navController
             )
         },
         bottomBar = {
@@ -152,7 +152,6 @@ fun HomePage(navController: NavController) {
                     }
                 }
             }
-
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
