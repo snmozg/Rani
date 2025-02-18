@@ -17,6 +17,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,12 +36,18 @@ import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.DreamCard
 import com.sozge.rani.components.FloatingBottomNavBar
 import com.sozge.rani.components.HeaderBar
+import com.sozge.rani.components.ManifestList
 import com.sozge.rani.components.ZodiacCard
 
 @Composable
 fun HomePage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Ana Sayfa") }
     val interactionSource = remember { MutableInteractionSource() }
+    var randomSentence by remember { mutableStateOf("") }
+
+    LaunchedEffect(Unit) {
+        randomSentence = ManifestList.getRandomSentence()
+    }
 
     Scaffold(
         modifier = Modifier
@@ -87,11 +94,11 @@ fun HomePage(navController: NavController) {
                         modifier = Modifier
                             .fillMaxSize()
                             .background(
-                                Brush.verticalGradient(
+                                Brush.horizontalGradient(
                                     colors = listOf(
-                                        Color(0xFF991433),
-                                        Color(0xFFB24C63),
-                                        Color(0xFFB46073)
+                                        Color(0xFF2D086D),
+                                        Color(0xFF6A46AA),
+
                                     )
                                 )
                             ).clickable(
@@ -107,7 +114,7 @@ fun HomePage(navController: NavController) {
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             CustomText(
-                                text = "Bugün için bir manifest oluştur",
+                                text = randomSentence,
                                 fontSize = 18.sp,
                                 textAlign = TextAlign.Center,
                                 fontWeight = FontWeight.Normal,
