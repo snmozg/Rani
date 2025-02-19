@@ -148,7 +148,9 @@ fun HomePage(navController: NavController) {
                             description = "Önceden belirlediğimiz kategoriler ile yap!",
                             image = R.drawable.darkbluebackground,
                             isHorizontalCard = true,
-                        )
+                        ){
+                            navController.navigate("CategoryPage")
+                        }
                     }
                 }
             }
