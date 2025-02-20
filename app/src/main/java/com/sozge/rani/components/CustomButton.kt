@@ -32,7 +32,7 @@ import com.sozge.rani.R
 fun CustomButton(
     onClick: () -> Unit = {},
     icon: Painter = painterResource(id = R.drawable.taurus),
-    text: String = "Agah"
+    text: String = "Agah",
 ) {
     var isActive by remember { mutableStateOf(false) }
     val buttonColor = if (isActive) MaterialTheme.colorScheme.primary else Color.Transparent
@@ -66,6 +66,7 @@ fun CustomButton(
                 text = text,
                 fontSize = 16.sp,
             )
+
         }
     }
 }

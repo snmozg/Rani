@@ -129,7 +129,7 @@ fun ExplainPage(navController: NavController) {
                 ExpandedButton(
                     text = "Rüyanı Yorumla!",
                 ) {
-                    // TODO: Implement the functionality
+                    navController.navigate("ZodiacInfoPage")
                 }
             }
         }
