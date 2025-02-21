@@ -22,6 +22,8 @@ import androidx.navigation.NavController
 import com.sozge.rani.R
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.HeaderBar
+import com.sozge.rani.components.HoroscopeBottomSheetButton
+import com.sozge.rani.components.HoroscopeBottomSheetContent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,116 +66,6 @@ fun ZodiacInfoPage(navController: NavController) {
             ) {
                 Image(painter = painterResource(id = R.drawable.gemini), contentDescription = "")
             }
-        }
-    }
-}
-
-@Composable
-fun HoroscopeBottomSheetContent() {
-    var selectedTab by remember { mutableStateOf("Genel") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            CustomText(text = "Koç Burcu", fontSize = 24.sp)
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Outlined.Schedule,
-                    contentDescription = "Tarih aralığı",
-                    modifier = Modifier.size(16.dp)
-                )
-                CustomText(text = "21 Mart - 19 Nisan", fontSize = 14.sp)
-            }
-
-            CustomText(
-                text = "Koç burcu, enerjik, girişimci ve lider ruhlu özellikleriyle bilinir. Kısa ve öz bir açıklama metni.",
-                fontSize = 16.sp
-            )
-        }
-
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            HoroscopeButton(
-                text = "Genel",
-                isSelected = selectedTab == "Genel",
-                onClick = { selectedTab = "Genel" }
-            )
-            HoroscopeButton(
-                text = "Erkek",
-                isSelected = selectedTab == "Erkek",
-                onClick = { selectedTab = "Erkek" }
-            )
-            HoroscopeButton(
-                text = "Kadın",
-                isSelected = selectedTab == "Kadın",
-                onClick = { selectedTab = "Kadın" }
-            )
-        }
-
-        when (selectedTab) {
-            "Genel" -> {
-                CustomText(
-                    text = "Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin... Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin..",
-                    fontSize = 16.sp
-                )
-            }
-
-            "Erkek" -> {
-                CustomText(
-                    text = "Erkeklere özel burç yorumu: Koç erkeklerinin karakteristik özellikleri, ilişkilerdeki yaklaşımları ve günlük enerjileri...",
-                    fontSize = 16.sp
-                )
-            }
-
-            "Kadın" -> {
-                CustomText(
-                    text = "Kadınlara özel burç yorumu: Koç kadınlarının yaşam tarzı, duygusal yönleri ve ilişkilere bakış açılarını anlatan detaylı metin...",
-                    fontSize = 16.sp
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun HoroscopeButton(
-    text: String,
-    isSelected: Boolean,
-    onClick: () -> Unit,
-) {
-    OutlinedButton(
-        modifier = Modifier
-            .height(60.dp)
-            .width(125.dp),
-        onClick = onClick,
-        shape = RoundedCornerShape(20.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
-            contentColor = Color.White
-        ),
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
-            CustomText(text = text, fontSize = 20.sp)
         }
     }
 }

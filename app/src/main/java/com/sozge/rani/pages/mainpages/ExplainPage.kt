@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -17,15 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.sozge.rani.R
-import com.sozge.rani.components.CustomButton
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.CustomTextInput
 import com.sozge.rani.components.ExpandedButton
+import com.sozge.rani.components.ExplainButton
 import com.sozge.rani.components.HeaderBar
 
 @Composable
@@ -105,15 +103,15 @@ fun ExplainPage(navController: NavController) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     items(1) {
-                        CustomButton(
+                        ExplainButton(
                             icon = painterResource(id = R.drawable.grandpa),
                             text = "Evliya"
                         )
-                        CustomButton(
+                        ExplainButton(
                             icon = painterResource(id = R.drawable.grandma),
                             text = "Leyla"
                         )
-                        CustomButton(
+                        ExplainButton(
                             icon = painterResource(id = R.drawable.dad),
                             text = "Tuna"
                         )
