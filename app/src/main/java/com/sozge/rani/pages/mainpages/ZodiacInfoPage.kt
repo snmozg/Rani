@@ -3,26 +3,15 @@ package com.sozge.rani.pages.mainpages
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.sozge.rani.R
-import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.HeaderBar
-import com.sozge.rani.components.HoroscopeBottomSheetButton
 import com.sozge.rani.components.HoroscopeBottomSheetContent
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +44,17 @@ fun ZodiacInfoPage(navController: NavController) {
                     sheetState = sheetState,
                     containerColor = MaterialTheme.colorScheme.tertiary
                 ) {
-                    HoroscopeBottomSheetContent()
+                    HoroscopeBottomSheetContent(
+                        title = "İkizler Burcu",
+                        dateRange = "21 Mayıs - 20 Haziran",
+                        description = "Koç burcu, enerjik, girişimci ve lider ruhlu özellikleriyle bilinir. Kısa ve öz bir açıklama metni.",
+                        firstButtonText = "Genel",
+                        firstButtonContent = "Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin... Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin..",
+                        secondButtonText = "Erkek",
+                        secondButtonContent = "Erkek burç yorumu: Koç burcunun erkeklerine özgü özellikleri, günlük enerjileri ve yaşam felsefesini anlatan uzun metin...",
+                        thirdButtonText = "Kadın",
+                        thirdButtonContent = "Kadın burç yorumu: Koç burcunun kadınlarına özgü özellikleri, günlük enerjileri ve yaşam felsefesini anlatan uzun metin...",
+                    )
                 }
             }
             Box(

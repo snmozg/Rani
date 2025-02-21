@@ -23,7 +23,17 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun HoroscopeBottomSheetContent(
-) {
+    title: String,
+    dateRange: String,
+    description: String,
+    firstButtonText: String,
+    firstButtonContent: String,
+    secondButtonText: String,
+    secondButtonContent: String,
+    thirdButtonText: String,
+    thirdButtonContent: String,
+
+    ) {
     var selectedTab by remember { mutableStateOf("First") }
 
     Column(
@@ -39,7 +49,7 @@ fun HoroscopeBottomSheetContent(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            CustomText(text = "Koç Burcu", fontSize = 24.sp)
+            CustomText(text = title, fontSize = 24.sp)
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -47,35 +57,34 @@ fun HoroscopeBottomSheetContent(
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Schedule,
-                    contentDescription = "Tarih aralığı",
+                    contentDescription = "Date range",
                     modifier = Modifier.size(16.dp)
                 )
-                CustomText(text = "21 Mart - 19 Nisan", fontSize = 14.sp)
+                CustomText(text = dateRange, fontSize = 14.sp)
             }
 
             CustomText(
-                text = "Koç burcu, enerjik, girişimci ve lider ruhlu özellikleriyle bilinir. Kısa ve öz bir açıklama metni.",
+                text = description,
                 fontSize = 16.sp
             )
         }
-
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             HoroscopeBottomSheetButton(
-                text = "Erdem",
+                text = firstButtonText,
                 isSelected = selectedTab == "First",
                 onClick = { selectedTab = "First" }
             )
             HoroscopeBottomSheetButton(
-                text = "Erkek",
+                text = secondButtonText,
                 isSelected = selectedTab == "Second",
                 onClick = { selectedTab = "Second" }
             )
             HoroscopeBottomSheetButton(
-                text = "Kadın",
+                text = thirdButtonText,
                 isSelected = selectedTab == "Third",
                 onClick = { selectedTab = "Third" }
             )
@@ -84,21 +93,19 @@ fun HoroscopeBottomSheetContent(
         when (selectedTab) {
             "First" -> {
                 CustomText(
-                    text = "Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin... Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin..",
+                    text = firstButtonContent,
                     fontSize = 16.sp
                 )
             }
-
             "Second" -> {
                 CustomText(
-                    text = "Erkeklere özel burç yorumu: Koç erkeklerinin karakteristik özellikleri, ilişkilerdeki yaklaşımları ve günlük enerjileri...",
+                    text = secondButtonContent,
                     fontSize = 16.sp
                 )
             }
-
             "Third" -> {
                 CustomText(
-                    text = "Kadınlara özel burç yorumu: Koç kadınlarının yaşam tarzı, duygusal yönleri ve ilişkilere bakış açılarını anlatan detaylı metin...",
+                    text = thirdButtonContent,
                     fontSize = 16.sp
                 )
             }
