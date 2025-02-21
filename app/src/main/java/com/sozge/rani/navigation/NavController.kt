@@ -8,6 +8,8 @@ import androidx.navigation.compose.rememberNavController
 import com.sozge.rani.pages.mainpages.CategoryPage
 import com.sozge.rani.pages.mainpages.main.DreamPage
 import com.sozge.rani.pages.mainpages.ExplainPage
+import com.sozge.rani.pages.mainpages.ZodiacConstellationsPage
+import com.sozge.rani.pages.mainpages.ZodiacDailyCommentPage
 import com.sozge.rani.pages.mainpages.ZodiacInfoPage
 import com.sozge.rani.pages.mainpages.main.HomePage
 import com.sozge.rani.pages.mainpages.main.RisingPage
@@ -29,6 +31,8 @@ fun NavController() {
         composable(route = "ZodiacPage") { ZodiacPage(navController) }
 
         composable(route = "ZodiacInfoPage") { ZodiacInfoPage(navController) }
+        composable(route = "ZodiacConstellationsPage") { ZodiacConstellationsPage(navController) }
+        composable(route = "ZodiacDailyCommentPage") { ZodiacDailyCommentPage(navController) }
 
         composable(route = "ExplainPage") { ExplainPage(navController) }
         composable(route = "RisingPage") { RisingPage(navController) }

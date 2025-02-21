@@ -3,19 +3,15 @@ package com.sozge.rani.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,30 +22,30 @@ import androidx.compose.ui.unit.sp
 import com.sozge.rani.R
 
 @Composable
-fun ExplainButton(
-    onClick: () -> Unit = {},
+fun HoroscopeBottomSheetCard(
+    text: String,
     icon: Painter = painterResource(id = R.drawable.taurus),
-    text: String = "Agah",
+    colorValue: Int = 1
 ) {
-    var isActive by remember { mutableStateOf(false) }
-    val buttonColor = if (isActive) MaterialTheme.colorScheme.primary else Color.Transparent
-
-    OutlinedButton(
-        onClick = {
-            isActive = !isActive
-            onClick()
-        },
+    OutlinedCard(
         modifier = Modifier
             .height(60.dp)
             .width(125.dp)
             .padding(2.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = buttonColor,
+        colors = CardDefaults.cardColors(
+            containerColor =
+            if (colorValue == 1) {
+                Color(0xFF548F4A)
+            } else if (colorValue == 2) {
+                Color(0xFFBBB94F)
+            } else
+                Color(0xFF811616),
             contentColor = Color.White
         ),
         shape = RoundedCornerShape(20.dp)
     ) {
         Row(
+            modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
@@ -57,7 +53,7 @@ fun ExplainButton(
                 painter = icon,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(36.dp)
                     .padding(end = 4.dp)
             )
             CustomText(
@@ -66,5 +62,6 @@ fun ExplainButton(
             )
 
         }
+
     }
 }

@@ -32,7 +32,7 @@ fun ZodiacCard(
     icon: Int = R.drawable.gemini
 ) {
     Card(
-        onClick = { },
+        onClick = {},
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
             .height(150.dp)
