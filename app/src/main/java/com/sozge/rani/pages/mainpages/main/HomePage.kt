@@ -149,7 +149,7 @@ fun HomePage(navController: NavController) {
                             image = R.drawable.darkbluebackground,
                             isHorizontalCard = true,
                         ){
-                            navController.navigate("ZodiacDailyCommentPage")
+                            navController.navigate("CategoryPage")
                         }
                     }
                 }

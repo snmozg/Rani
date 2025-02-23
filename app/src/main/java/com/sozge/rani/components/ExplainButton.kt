@@ -27,16 +27,14 @@ import com.sozge.rani.R
 
 @Composable
 fun ExplainButton(
-    onClick: () -> Unit = {},
-    icon: Painter = painterResource(id = R.drawable.taurus),
     text: String = "Agah",
-) {
-    var isActive by remember { mutableStateOf(false) }
-    val buttonColor = if (isActive) MaterialTheme.colorScheme.primary else Color.Transparent
+    icon: Painter = painterResource(id = R.drawable.taurus),
+    isSelected: Boolean,
+    onClick: () -> Unit = {},
+    ) {
 
     OutlinedButton(
         onClick = {
-            isActive = !isActive
             onClick()
         },
         modifier = Modifier
@@ -44,7 +42,7 @@ fun ExplainButton(
             .width(125.dp)
             .padding(2.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = buttonColor,
+            containerColor = if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
             contentColor = Color.White
         ),
         shape = RoundedCornerShape(20.dp)

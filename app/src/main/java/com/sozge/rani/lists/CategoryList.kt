@@ -50,55 +50,55 @@ fun moodList(): List<CategoryCard> {
 fun animalList(): List<CategoryCard>{
     return listOf(
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.cat,
             text = "Kedi"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.bird,
             text = "Kuş"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.dog,
             text = "Köpek"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.fish,
             text = "Balık"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.snake,
             text = "Yılan"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.horse,
             text = "At"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.mouse,
             text = "Fare"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.bat,
             text = "Yarasa"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.squirrel,
             text = "Sincap"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.turtle,
             text = "Kaplumbağa"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.shark,
             text = "Köpekbalığı"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.wolf,
             text = "Kurt"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.raven,
             text = "Karga"
         )
     )

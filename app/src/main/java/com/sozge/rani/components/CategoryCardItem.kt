@@ -54,8 +54,6 @@ fun CategoryCardItem(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
-            modifier = Modifier
-
         ) {
             Column(
                 modifier = Modifier
@@ -76,6 +74,7 @@ fun CategoryCardItem(
                             onClickLabel = "Clickable Image",
                             onClick = onClick
                         )
+                        .padding(10.dp)
                 )
             }
         }

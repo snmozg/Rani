@@ -36,6 +36,7 @@ import com.sozge.rani.components.HeaderBar
 
 @Composable
 fun ZodiacPage(navController: NavController) {
+    var selectedTab by remember { mutableStateOf("Burçlar") }
     val horoscopes = listOf("Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık")
     var selectedHoroscope by remember { mutableStateOf(1) }
     val scrollState = rememberScrollState()
@@ -61,6 +62,13 @@ fun ZodiacPage(navController: NavController) {
                 title = "Burçlar",
                 isEnableBackButton = false,
                 navController = navController
+            )
+        },
+        bottomBar = {
+            FloatingBottomNavBar(
+                selectedTab = selectedTab,
+                onTabSelected = { selectedTab = it },
+                navController
             )
         }
     ) { innerPadding ->
