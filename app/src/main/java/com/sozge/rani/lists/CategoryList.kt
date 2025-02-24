@@ -8,41 +8,37 @@ import com.sozge.rani.datas.CategoryCard
 fun moodList(): List<CategoryCard> {
     return listOf(
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodnone,
+            text = "Belirsiz"
+        ),
+        CategoryCard(
+            image = R.drawable.moodhappy,
             text = "Mutlu"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
-            text = "Heyecanlı"
-        ),
-        CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodscared,
             text = "Korkmuş"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodpeacful,
             text = "Huzurlu"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodcurious,
+            text = "Meraklı"
+        ),
+        CategoryCard(
+            image = R.drawable.moodangry,
             text = "Sinirli"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodshocked,
             text = "Şaşırmış"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.moodsad,
             text = "Üzgün"
         ),
-        CategoryCard(
-            image = R.drawable.grandma,
-            text = "Sakin"
-        ),
-        CategoryCard(
-            image = R.drawable.grandma,
-            text = "Meraklı"
-        )
     )
 }
 
@@ -109,47 +105,47 @@ fun animalList(): List<CategoryCard>{
 fun colorList(): List<CategoryCard>{
     return listOf(
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorred,
             text = "Kırmızı"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorblue,
             text = "Mavi"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorgreen,
             text = "Yeşil"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.coloryellow,
             text = "Sarı"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorpurple,
             text = "Mor"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorpink,
             text = "Pembe"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colororange,
             text = "Turuncu"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorgray,
             text = "Gri"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorbrown,
             text = "Kahverengi"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorwhite,
             text = "Beyaz"
         ),
         CategoryCard(
-            image = R.drawable.grandma,
+            image = R.drawable.colorblack,
             text = "Siyah"
         )
     )

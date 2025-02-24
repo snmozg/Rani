@@ -92,7 +92,41 @@ fun CategoryPage(
                         .padding(start = 16.dp, end = 16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    CustomText(text = "Renk, bir renk ön planda mıydı?", fontSize = 22.sp)
+                    CustomText(text = "Renk, Bir renk ön planda mıydı?", fontSize = 22.sp)
+
+                    CustomCategorySection(
+                        list = colorList(),
+                        true,
+                        onSelectionChange = { category ->
+                            categoryViewModel.selectColor(category)
+                        },
+                        selectedList = categoryViewModel.selectedColor
+                    )
+                }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    CustomText(text = "Kişi, Kimler vardı?", fontSize = 22.sp)
+
+                    CustomCategorySection(
+                        list = colorList(),
+                        true,
+                        onSelectionChange = { category ->
+                            categoryViewModel.selectColor(category)
+                        },
+                        selectedList = categoryViewModel.selectedColor
+                    )
+                }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    CustomText(text = "Yabancı, Bir figür var mıydı?", fontSize = 22.sp)
 
                     CustomCategorySection(
                         list = colorList(),
