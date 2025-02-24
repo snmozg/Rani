@@ -50,55 +50,56 @@ fun moodList(): List<CategoryCard> {
 fun animalList(): List<CategoryCard>{
     return listOf(
         CategoryCard(
-            image = R.drawable.cat,
-            text = "Kedi"
-        ),
-        CategoryCard(
-            image = R.drawable.bird,
-            text = "Kuş"
-        ),
-        CategoryCard(
-            image = R.drawable.dog,
+            image = R.drawable.dog1,
             text = "Köpek"
         ),
         CategoryCard(
-            image = R.drawable.fish,
-            text = "Balık"
+            image = R.drawable.bird1,
+            text = "Kuş"
         ),
         CategoryCard(
-            image = R.drawable.snake,
-            text = "Yılan"
+            image = R.drawable.cat1,
+            text = "Kedi"
         ),
         CategoryCard(
-            image = R.drawable.horse,
-            text = "At"
-        ),
-        CategoryCard(
-            image = R.drawable.mouse,
-            text = "Fare"
-        ),
-        CategoryCard(
-            image = R.drawable.bat,
-            text = "Yarasa"
-        ),
-        CategoryCard(
-            image = R.drawable.squirrel,
-            text = "Sincap"
-        ),
-        CategoryCard(
-            image = R.drawable.turtle,
+            image = R.drawable.turtle1,
             text = "Kaplumbağa"
         ),
         CategoryCard(
-            image = R.drawable.shark,
-            text = "Köpekbalığı"
+            image = R.drawable.fish1,
+            text = "Balık"
         ),
         CategoryCard(
-            image = R.drawable.wolf,
+            image = R.drawable.snake1,
+            text = "Yılan"
+        ),
+        CategoryCard(
+            image = R.drawable.horse1,
+            text = "At"
+        ),
+        CategoryCard(
+            image = R.drawable.mouse1,
+            text = "Fare"
+        ),
+        CategoryCard(
+            image = R.drawable.squirrel1,
+            text = "Sincap"
+        ),
+        CategoryCard(
+            image = R.drawable.bat1,
+            text = "Yarasa"
+        ),
+        CategoryCard(
+            image = R.drawable.wolf1,
             text = "Kurt"
         ),
         CategoryCard(
-            image = R.drawable.raven,
+            image = R.drawable.shark1,
+            text = "Köpekbalığı"
+        ),
+
+        CategoryCard(
+            image = R.drawable.crow1,
             text = "Karga"
         )
     )
