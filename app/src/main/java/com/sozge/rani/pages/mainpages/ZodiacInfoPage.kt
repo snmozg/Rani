@@ -9,32 +9,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.sozge.rani.R
 import com.sozge.rani.components.HeaderBar
 import com.sozge.rani.components.HoroscopeBottomSheetContent
+import com.sozge.rani.datas.HoroscopeRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ZodiacInfoPage(navController: NavController) {
+fun ZodiacInfoPage(navController: NavController, horoscopeName: String) {
+    val horoscope = HoroscopeRepository.getHoroscope(horoscopeName)
+
+    if (horoscope == null) {
+        Text(text = "Burç bilgisi bulunamadı", color = Color.Red, fontSize = 20.sp)
+        return
+    }
+
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
     var showSheet by remember { mutableStateOf(true) }
 
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
+        modifier = Modifier.fillMaxSize().background(Color.White),
         topBar = {
-            HeaderBar(
-                title = "Temel Bilgiler",
-                navController = navController
-            )
+            HeaderBar(title = "${horoscope.name} Burcu", navController = navController)
         },
     ) { innerPadding ->
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+            modifier = Modifier.fillMaxSize().padding(innerPadding),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -45,25 +47,26 @@ fun ZodiacInfoPage(navController: NavController) {
                     containerColor = MaterialTheme.colorScheme.tertiary
                 ) {
                     HoroscopeBottomSheetContent(
-                        title = "İkizler Burcu",
-                        dateRange = "21 Mayıs - 20 Haziran",
-                        description = "Koç burcu, enerjik, girişimci ve lider ruhlu özellikleriyle bilinir. Kısa ve öz bir açıklama metni.",
+                        title = horoscope.name,
+                        dateRange = horoscope.dateRange,
+                        description = horoscope.description,
                         firstButtonText = "Genel",
-                        firstButtonContent = "Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin... Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin.. Genel burç yorumu: Koç burcunun genel özelliklerini, günlük enerjilerini ve yaşam felsefesini anlatan uzun metin..",
+                        firstButtonContent = horoscope.general,
                         secondButtonText = "Erkek",
-                        secondButtonContent = "Erkek burç yorumu: Koç burcunun erkeklerine özgü özellikleri, günlük enerjileri ve yaşam felsefesini anlatan uzun metin...",
+                        secondButtonContent = horoscope.male,
                         thirdButtonText = "Kadın",
-                        thirdButtonContent = "Kadın burç yorumu: Koç burcunun kadınlarına özgü özellikleri, günlük enerjileri ve yaşam felsefesini anlatan uzun metin...",
+                        thirdButtonContent = horoscope.female,
                     )
                 }
             }
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background),
+                modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
                 contentAlignment = Alignment.Center
             ) {
-                Image(painter = painterResource(id = R.drawable.gemini), contentDescription = "")
+                Image(
+                    painter = painterResource(id = R.drawable.gemini),
+                    contentDescription = ""
+                )
             }
         }
     }

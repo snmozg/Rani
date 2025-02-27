@@ -30,7 +30,10 @@ fun NavController() {
         composable(route = "DreamPage") { DreamPage(navController) }
         composable(route = "ZodiacPage") { ZodiacPage(navController) }
 
-        composable(route = "ZodiacInfoPage") { ZodiacInfoPage(navController) }
+        composable("ZodiacInfoPage/{horoscopeName}") { backStackEntry ->
+            val horoscopeName = backStackEntry.arguments?.getString("horoscopeName") ?: "Bilinmiyor"
+            ZodiacInfoPage(navController, horoscopeName)
+        }
         composable(route = "ZodiacConstellationsPage") { ZodiacConstellationsPage(navController) }
         composable(route = "ZodiacDailyCommentPage") { ZodiacDailyCommentPage(navController) }
 
