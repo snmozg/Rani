@@ -162,7 +162,7 @@ fun ZodiacPage(navController: NavController) {
                                 Text(category, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                                 Button(onClick = {
                                     val selectedHoroscopeName = horoscopes[selectedHoroscope]
-                                    navController.navigate("ZodiacInfoPage/$selectedHoroscopeName")
+                                    navController.navigate("ZodiacConstellationsPage/$selectedHoroscopeName")
                                 }) {
                                     Text("Devamını Oku")
                                 }

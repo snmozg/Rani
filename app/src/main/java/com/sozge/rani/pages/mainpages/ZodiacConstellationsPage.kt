@@ -11,6 +11,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,14 +22,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.sozge.rani.R
 import com.sozge.rani.components.HeaderBar
 import com.sozge.rani.components.HoroscopeBottomSheetContent
+import com.sozge.rani.datas.ConstellationsRepository
+import com.sozge.rani.datas.ConstellationsRepository.constellations
+import com.sozge.rani.datas.HoroscopeRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ZodiacConstellationsPage(navController: NavController) {
+fun ZodiacConstellationsPage(navController: NavController,
+                             horoscopeName: String
+) {
+    val constellations = ConstellationsRepository.getConstellations(horoscopeName)
+
+    if (constellations == null) {
+        Text(text = "Burç bilgisi bulunamadı", color = Color.Red, fontSize = 20.sp)
+        return
+    }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
     var showSheet by remember { mutableStateOf(true) }
 
@@ -37,10 +50,7 @@ fun ZodiacConstellationsPage(navController: NavController) {
             .fillMaxSize()
             .background(Color.White),
         topBar = {
-            HeaderBar(
-                title = "Takım Yıldızları",
-                navController = navController
-            )
+            HeaderBar(title = "${constellations.name} Burcu", navController = navController)
         },
     ) { innerPadding ->
         Column(
@@ -57,15 +67,15 @@ fun ZodiacConstellationsPage(navController: NavController) {
                     containerColor = MaterialTheme.colorScheme.tertiary
                 ) {
                     HoroscopeBottomSheetContent(
-                        title = "İkizler Burcu",
-                        dateRange = "21 Mayıs - 20 Haziran",
-                        description = "İkizler burcu, enerjik, girişimci ve lider ruhlu özellikleriyle bilinir. Kısa ve öz bir açıklama metni.",
+                        title = constellations.name,
+                        dateRange = constellations.dateRange,
+                        description = constellations.description,
                         firstButtonText = "Mitoloji",
-                        firstButtonContent = "Mitolojik açıklama metni...",
-                        secondButtonText = "Yapı",
-                        secondButtonContent = "Yapısal açıklama metni...",
+                        firstButtonContent = constellations.mythology,
+                        secondButtonText = "Yıldız Haritası",
+                        secondButtonContent = constellations.starMap,
                         thirdButtonText = "Parlaklık",
-                        thirdButtonContent = "Parlaklık açıklama metni...",
+                        thirdButtonContent = constellations.brightness,
                     )
                 }
             }

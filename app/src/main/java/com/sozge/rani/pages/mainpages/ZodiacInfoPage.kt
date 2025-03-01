@@ -18,14 +18,15 @@ import com.sozge.rani.datas.HoroscopeRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ZodiacInfoPage(navController: NavController, horoscopeName: String) {
+fun ZodiacInfoPage(navController: NavController,
+                   horoscopeName: String
+) {
     val horoscope = HoroscopeRepository.getHoroscope(horoscopeName)
 
     if (horoscope == null) {
         Text(text = "Burç bilgisi bulunamadı", color = Color.Red, fontSize = 20.sp)
         return
     }
-
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
     var showSheet by remember { mutableStateOf(true) }
 
