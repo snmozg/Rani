@@ -38,11 +38,11 @@ import com.sozge.rani.components.HeaderBar
 fun ZodiacPage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Burçlar") }
     val horoscopes = listOf("Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık")
-    var selectedHoroscope by remember { mutableStateOf(1) }
+    var selectedHoroscope by remember { mutableIntStateOf(1) }
     val scrollState = rememberScrollState()
     val categories = listOf("Genel Özellikler", "Günlük Burç", "Takım Yıldızları")
     val cardScrollState = rememberScrollState()
-    var selectedCardIndex by remember { mutableStateOf(1) }
+    var selectedCardIndex by remember { mutableIntStateOf(1) }
 
     LaunchedEffect(cardScrollState.value) {
         val index = (cardScrollState.value / 220).coerceIn(0, categories.size - 1)
@@ -134,7 +134,6 @@ fun ZodiacPage(navController: NavController) {
                 }
             }
 
-
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -162,7 +161,13 @@ fun ZodiacPage(navController: NavController) {
                                 Text(category, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                                 Button(onClick = {
                                     val selectedHoroscopeName = horoscopes[selectedHoroscope]
-                                    navController.navigate("ZodiacConstellationsPage/$selectedHoroscopeName")
+                                    val route = when (selectedCardIndex) {
+                                        0 -> "ZodiacInfoPage/$selectedHoroscopeName"
+                                        1 -> "ZodiacDailyCommentPage"
+                                        2 -> "ZodiacConstellationsPage/$selectedHoroscopeName"
+                                        else -> "HomePage"
+                                    }
+                                    navController.navigate(route)
                                 }) {
                                     Text("Devamını Oku")
                                 }
