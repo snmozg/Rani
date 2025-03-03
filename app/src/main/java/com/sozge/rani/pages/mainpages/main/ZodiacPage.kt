@@ -4,9 +4,12 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -19,14 +22,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.sozge.rani.R
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.FloatingBottomNavBar
@@ -35,10 +35,24 @@ import com.sozge.rani.components.HeaderBar
 @Composable
 fun ZodiacPage(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Burçlar") }
-    val horoscopes = listOf("Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık")
+    val horoscopes = listOf(
+        "Koç",
+        "Boğa",
+        "İkizler",
+        "Yengeç",
+        "Aslan",
+        "Başak",
+        "Terazi",
+        "Akrep",
+        "Yay",
+        "Oğlak",
+        "Kova",
+        "Balık"
+    )
     var selectedHoroscope by remember { mutableIntStateOf(1) }
     val scrollState = rememberScrollState()
     val categories = listOf("Genel Özellikler", "Günlük Burç", "Takım Yıldızları")
+    val listState = rememberLazyListState()
     val cardScrollState = rememberScrollState()
     var selectedCardIndex by remember { mutableIntStateOf(1) }
 
@@ -78,45 +92,80 @@ fun ZodiacPage(navController: NavController) {
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(scrollState),
+            LazyRow(
+                state = listState,
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                horoscopes.forEachIndexed { index, name ->
+                itemsIndexed(horoscopes) { index, name ->
                     val scale by animateFloatAsState(if (index == selectedHoroscope) 1.2f else 0.5f)
                     val zodiacIcon = when (name) {
-                        "Koç" -> painterResource(id = R.drawable.whitearies)
-                        "Boğa" -> painterResource(id = R.drawable.whitetaurus)
-                        "İkizler" -> painterResource(id = R.drawable.whitegemini)
-                        "Yengeç" -> painterResource(id = R.drawable.whitecancer)
-                        "Aslan" -> painterResource(id = R.drawable.whiteleo)
-                        "Başak" -> painterResource(id = R.drawable.whitevirgo)
-                        "Terazi" -> painterResource(id = R.drawable.whitelibra)
-                        "Akrep" -> painterResource(id = R.drawable.whitescorpio)
-                        "Yay" -> painterResource(id = R.drawable.whitesagittarius)
-                        "Oğlak" -> painterResource(id = R.drawable.whitecapricorn)
-                        "Kova" -> painterResource(id = R.drawable.whiteaquarius)
-                        "Balık" -> painterResource(id = R.drawable.whitepisces)
+                        "Koç" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfularies) else painterResource(
+                            id = R.drawable.whitearies
+                        )
+
+                        "Boğa" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfultaurus) else painterResource(
+                            id = R.drawable.whitetaurus
+                        )
+
+                        "İkizler" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulgemini) else painterResource(
+                            id = R.drawable.whitegemini
+                        )
+
+                        "Yengeç" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulcancer) else painterResource(
+                            id = R.drawable.whitecancer
+                        )
+
+                        "Aslan" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulleo) else painterResource(
+                            id = R.drawable.whiteleo
+                        )
+
+                        "Başak" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulvirgo) else painterResource(
+                            id = R.drawable.whitevirgo
+                        )
+
+                        "Terazi" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfullibra) else painterResource(
+                            id = R.drawable.whitelibra
+                        )
+
+                        "Akrep" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulscorpio) else painterResource(
+                            id = R.drawable.whitescorpio
+                        )
+
+                        "Yay" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulsagittarius) else painterResource(
+                            id = R.drawable.whitesagittarius
+                        )
+
+                        "Oğlak" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulcapricorn) else painterResource(
+                            id = R.drawable.whitecapricorn
+                        )
+
+                        "Kova" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulaquarius) else painterResource(
+                            id = R.drawable.whiteaquarius
+                        )
+
+                        "Balık" -> if (index == selectedHoroscope) painterResource(id = R.drawable.colorfulpisces) else painterResource(
+                            id = R.drawable.whitepisces
+                        )
+
                         else -> painterResource(id = R.drawable.categorybackground)
                     }
 
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
-                        modifier = Modifier.padding(horizontal = 10.dp)
+                        modifier = Modifier
+                            .padding(horizontal = 10.dp)
+                            .clickable(
+                                indication = null,
+                                interactionSource = remember { MutableInteractionSource() }
+                            ) { selectedHoroscope = index }
                     ) {
                         Box(
                             modifier = Modifier
                                 .size(96.dp)
                                 .scale(scale)
-                                .background(
-                                    if (index == selectedHoroscope) MaterialTheme.colorScheme.primary
-                                    else MaterialTheme.colorScheme.background,
-                                    shape = CircleShape
-                                )
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
                         ) {
@@ -177,6 +226,3 @@ fun ZodiacPage(navController: NavController) {
         }
     }
 }
-
-
-
