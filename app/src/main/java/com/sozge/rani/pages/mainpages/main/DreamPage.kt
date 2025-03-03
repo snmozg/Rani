@@ -81,9 +81,11 @@ fun DreamPage(navController: NavController) {
                     DreamCard(
                         title = "Seç!",
                         description = "Önceden belirlediğimiz kategoriler ile yap!",
-                        image = R.drawable.darkbluebackground,
+                        image = R.drawable.mavi1,
                         isHorizontalCard = false
-                    )
+                    ){
+                        navController.navigate("CategoryPage")
+                    }
                 }
             }
 

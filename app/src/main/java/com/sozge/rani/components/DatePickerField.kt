@@ -56,6 +56,7 @@ fun DatePickerField() {
         shape = RoundedCornerShape(8.dp),
         label = { Text("Doğum Tarihinizi Girin") },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+        readOnly = true,
         trailingIcon = {
             IconButton(onClick = { showDatePicker = true }) {
                 Icon(imageVector = Icons.Default.Edit, contentDescription = "Tarih Seç")

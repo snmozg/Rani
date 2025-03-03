@@ -56,6 +56,7 @@ fun TimePickerField() {
         shape = RoundedCornerShape(8.dp),
         label = { Text("Doğum Saatinizi Girin") },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+        readOnly = true,
         trailingIcon = {
             IconButton(onClick = { showTimePicker = true }) {
                 Icon(imageVector = Icons.Default.Edit, contentDescription = "Saat Seç")

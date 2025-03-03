@@ -120,7 +120,7 @@ fun ExplainPage(navController: NavController) {
                         onClick = { selectedTab = "Second" }
                     )
                     ExplainButton(
-                        text = "Agah",
+                        text = "Deha",
                         icon = painterResource(id = R.drawable.dad),
                         isSelected = selectedTab == "Third",
                         onClick = { selectedTab = "Third" }
@@ -137,7 +137,7 @@ fun ExplainPage(navController: NavController) {
                     }
 
                     "Third" -> {
-                        selectedCharacterCode = "Agah"
+                        selectedCharacterCode = "Deha"
                     }
                 }
             }

@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.sozge.rani.components.CustomText
 import com.sozge.rani.components.DatePickerField
+import com.sozge.rani.components.ExpandedButton
 import com.sozge.rani.components.FloatingBottomNavBar
 import com.sozge.rani.components.HeaderBar
 import com.sozge.rani.components.TimePickerField
@@ -50,6 +51,9 @@ fun RisingPage(navController: NavController) {
             CustomText(text ="Yükselen Hesaplama")
             DatePickerField()
             TimePickerField()
+            ExpandedButton(text = "Yükselen Hesapla!") {
+
+            }
         }
     }
 }
