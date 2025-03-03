@@ -11,7 +11,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 // New colors
-val palatinateBlue = Color(0xFF5438DC)
+val palatinateBlue = Color(0xFF411786)
 val chinaRose = Color(0xFFB24C63)
 val newBlack = Color(0xFF141414)
 val newWhite = Color(0xFFE5E5E5)

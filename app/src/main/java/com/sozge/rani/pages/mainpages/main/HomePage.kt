@@ -96,10 +96,11 @@ fun HomePage(navController: NavController) {
                             .background(
                                 Brush.horizontalGradient(
                                     colors = listOf(
-                                        Color(0xFF2D086D),
+                                        Color(0xFF4c0078),
                                         Color(0xFF6A46AA),
 
                                     )
+                                            //Color(0xFF2D086D), Color(0xFF6A46AA),
                                 )
                             ).clickable(
                                 interactionSource = interactionSource,
@@ -164,18 +165,18 @@ fun HomePage(navController: NavController) {
 
                 LazyRow {
                     items(1) {
-                        ZodiacCard("Koç", R.drawable.aries)
-                        ZodiacCard("Boğa", R.drawable.taurus)
-                        ZodiacCard("İkizler", R.drawable.gemini)
-                        ZodiacCard("Yengeç", R.drawable.cancer)
-                        ZodiacCard("Aslan", R.drawable.leo)
-                        ZodiacCard("Başak", R.drawable.virgo)
-                        ZodiacCard("Terazi", R.drawable.libra)
-                        ZodiacCard("Akrep", R.drawable.scorpio)
-                        ZodiacCard("Yay", R.drawable.sagittarius)
-                        ZodiacCard("Oğlak", R.drawable.capricorn)
-                        ZodiacCard("Kova", R.drawable.aquarius)
-                        ZodiacCard("Balık", R.drawable.pisces)
+                        ZodiacCard("Koç", R.drawable.colorfularies)
+                        ZodiacCard("Boğa", R.drawable.colorfultaurus)
+                        ZodiacCard("İkizler", R.drawable.colorfulgemini)
+                        ZodiacCard("Yengeç", R.drawable.colorfulcancer)
+                        ZodiacCard("Aslan", R.drawable.colorfulleo)
+                        ZodiacCard("Başak", R.drawable.colorfulvirgo)
+                        ZodiacCard("Terazi", R.drawable.colorfullibra)
+                        ZodiacCard("Akrep", R.drawable.colorfulscorpio)
+                        ZodiacCard("Yay", R.drawable.colorfulsagittarius)
+                        ZodiacCard("Oğlak", R.drawable.colorfulcapricorn)
+                        ZodiacCard("Kova", R.drawable.colorfulaquarius)
+                        ZodiacCard("Balık", R.drawable.colorfulpisces)
                     }
                 }
             }

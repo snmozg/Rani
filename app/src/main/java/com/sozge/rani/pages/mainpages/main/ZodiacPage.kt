@@ -86,20 +86,20 @@ fun ZodiacPage(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 horoscopes.forEachIndexed { index, name ->
-                    val scale by animateFloatAsState(if (index == selectedHoroscope) 1.4f else 0.7f)
+                    val scale by animateFloatAsState(if (index == selectedHoroscope) 1.2f else 0.5f)
                     val zodiacIcon = when (name) {
-                        "Koç" -> painterResource(id = R.drawable.aries)
-                        "Boğa" -> painterResource(id = R.drawable.taurus)
-                        "İkizler" -> painterResource(id = R.drawable.gemini)
-                        "Yengeç" -> painterResource(id = R.drawable.cancer)
-                        "Aslan" -> painterResource(id = R.drawable.leo)
-                        "Başak" -> painterResource(id = R.drawable.virgo)
-                        "Terazi" -> painterResource(id = R.drawable.libra)
-                        "Akrep" -> painterResource(id = R.drawable.scorpio)
-                        "Yay" -> painterResource(id = R.drawable.sagittarius)
-                        "Oğlak" -> painterResource(id = R.drawable.capricorn)
-                        "Kova" -> painterResource(id = R.drawable.aquarius)
-                        "Balık" -> painterResource(id = R.drawable.pisces)
+                        "Koç" -> painterResource(id = R.drawable.whitearies)
+                        "Boğa" -> painterResource(id = R.drawable.whitetaurus)
+                        "İkizler" -> painterResource(id = R.drawable.whitegemini)
+                        "Yengeç" -> painterResource(id = R.drawable.whitecancer)
+                        "Aslan" -> painterResource(id = R.drawable.whiteleo)
+                        "Başak" -> painterResource(id = R.drawable.whitevirgo)
+                        "Terazi" -> painterResource(id = R.drawable.whitelibra)
+                        "Akrep" -> painterResource(id = R.drawable.whitescorpio)
+                        "Yay" -> painterResource(id = R.drawable.whitesagittarius)
+                        "Oğlak" -> painterResource(id = R.drawable.whitecapricorn)
+                        "Kova" -> painterResource(id = R.drawable.whiteaquarius)
+                        "Balık" -> painterResource(id = R.drawable.whitepisces)
                         else -> painterResource(id = R.drawable.categorybackground)
                     }
 

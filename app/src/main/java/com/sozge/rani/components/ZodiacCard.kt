@@ -55,7 +55,7 @@ fun ZodiacCard(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    modifier = Modifier.padding(5.dp),
+                    modifier = Modifier.padding(15.dp),
                     painter = painterResource(id = icon),
                     contentDescription = text
                 )
