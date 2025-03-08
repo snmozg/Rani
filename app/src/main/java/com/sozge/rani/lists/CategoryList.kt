@@ -46,56 +46,75 @@ fun moodList(): List<CategoryCard> {
 fun animalList(): List<CategoryCard>{
     return listOf(
         CategoryCard(
-            image = R.drawable.dog1,
+            image = R.drawable.animaldog,
             text = "Köpek"
         ),
         CategoryCard(
-            image = R.drawable.bird1,
+            image = R.drawable.animalbird,
             text = "Kuş"
         ),
         CategoryCard(
-            image = R.drawable.cat1,
+            image = R.drawable.animalcat,
             text = "Kedi"
         ),
         CategoryCard(
-            image = R.drawable.turtle1,
+            image = R.drawable.animlaturtle,
             text = "Kaplumbağa"
         ),
         CategoryCard(
-            image = R.drawable.fish1,
+            image = R.drawable.animalfish,
             text = "Balık"
         ),
         CategoryCard(
-            image = R.drawable.snake1,
+            image = R.drawable.animalstork,
+            text = "Leylek"
+        ),
+        CategoryCard(
+            image = R.drawable.animalsnake,
             text = "Yılan"
         ),
         CategoryCard(
-            image = R.drawable.horse1,
+            image = R.drawable.animalhorse,
             text = "At"
         ),
         CategoryCard(
-            image = R.drawable.mouse1,
+            image = R.drawable.animalmouse,
             text = "Fare"
         ),
         CategoryCard(
-            image = R.drawable.squirrel1,
+            image = R.drawable.animalsquirrel,
             text = "Sincap"
         ),
         CategoryCard(
-            image = R.drawable.bat1,
+            image = R.drawable.animalbats,
             text = "Yarasa"
         ),
         CategoryCard(
-            image = R.drawable.wolf1,
+            image = R.drawable.animalwolf,
             text = "Kurt"
         ),
         CategoryCard(
-            image = R.drawable.shark1,
+            image = R.drawable.animalshark,
             text = "Köpekbalığı"
         ),
-
         CategoryCard(
-            image = R.drawable.crow1,
+            image = R.drawable.animaldolphin,
+            text = "Yunus"
+        ),
+        CategoryCard(
+            image = R.drawable.animaltiger,
+            text = "Kaplan"
+        ),
+        CategoryCard(
+            image = R.drawable.animallion,
+            text = "Aslan"
+        ),
+        CategoryCard(
+            image = R.drawable.animalelephant,
+            text = "Fil"
+        ),
+        CategoryCard(
+            image = R.drawable.animalcrow,
             text = "Karga"
         )
     )
@@ -151,3 +170,96 @@ fun colorList(): List<CategoryCard>{
     )
 }
 
+@Composable
+fun familyList(): List<CategoryCard>{
+    return listOf(
+        CategoryCard(
+            image = R.drawable.familydad,
+            text = "Baba"
+        ),
+        CategoryCard(
+            image = R.drawable.familymom,
+            text = "Anne"
+        ),
+        CategoryCard(
+            image = R.drawable.familygirl,
+            text = "Kız çocuk"
+        ),
+        CategoryCard(
+            image = R.drawable.familyson,
+            text = "Erkek çocuk"
+        ),
+        CategoryCard(
+            image = R.drawable.familysis,
+            text = "Kız kardeş"
+        ),
+        CategoryCard(
+            image = R.drawable.familybrother,
+            text = "Erkek kardeş"
+        ),
+        CategoryCard(
+            image = R.drawable.familygrandma,
+            text = "Büyükanne"
+        ),
+        CategoryCard(
+            image = R.drawable.familygrandpa,
+            text = "Büyükbaba"
+        ),
+        CategoryCard(
+            image = R.drawable.familypet,
+            text = "Evcil hayvan"
+        ),
+        CategoryCard(
+            image = R.drawable.familyfamous,
+            text = "Other"
+        ),
+    )
+}
+
+@Composable
+fun weatherList(): List<CategoryCard>{
+    return listOf(
+        CategoryCard(
+            image = R.drawable.sweatherunset,
+            text = "Güneşli"
+        ),
+        CategoryCard(
+            image = R.drawable.weathercloudy,
+            text = "Bulutlu"
+        ),
+        CategoryCard(
+            image = R.drawable.weatherfoggy,
+            text = "Sisli"
+        ),
+        CategoryCard(
+            image = R.drawable.weatherstorm,
+            text = "Fırtınalı"
+        ),
+        CategoryCard(
+            image = R.drawable.weatherrain,
+            text = "Yağmurlu"
+        ),
+        CategoryCard(
+            image = R.drawable.weathersnow,
+            text = "Karlı"
+        ),
+
+        CategoryCard(
+            image = R.drawable.weatherwind,
+            text = "Rüzgarlı"
+        ),
+
+        CategoryCard(
+            image = R.drawable.weatherclear,
+            text = "Açık"
+        ),
+        CategoryCard(
+            image = R.drawable.weathercloudy,
+            text = "Bulutlu"
+        ),
+        CategoryCard(
+            image = R.drawable.weatherfoggy,
+            text = "Sisli"
+        )
+    )
+}

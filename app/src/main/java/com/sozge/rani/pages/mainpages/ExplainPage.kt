@@ -121,7 +121,7 @@ fun ExplainPage(navController: NavController) {
                     )
                     ExplainButton(
                         text = "Deha",
-                        icon = painterResource(id = R.drawable.dad),
+                        icon = painterResource(id = R.drawable.man),
                         isSelected = selectedTab == "Third",
                         onClick = { selectedTab = "Third" }
                     )

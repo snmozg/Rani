@@ -14,6 +14,12 @@ class CategoryViewModel : ViewModel() {
     private val _selectedColor = mutableStateListOf<CategoryCard>()
     val selectedColor : List<CategoryCard> get() = _selectedColor
 
+    private val _selectedFamily = mutableStateListOf<CategoryCard>()
+    val selectedFamily : List<CategoryCard> get() = _selectedFamily
+
+    private val _selectedWeather = mutableStateListOf<CategoryCard>()
+    val selectedWeather : List<CategoryCard> get() = _selectedWeather
+
     fun selectMood(category: CategoryCard) {
         if(_selectedMood.contains(category)) {
             _selectedMood.remove(category)
@@ -35,6 +41,22 @@ class CategoryViewModel : ViewModel() {
             _selectedColor.remove(category)
         } else if(_selectedColor.size < 3) {
             _selectedColor.add(category)
+        }
+    }
+
+    fun selectFamily(category: CategoryCard) {
+        if(_selectedFamily.contains(category)) {
+            _selectedFamily.remove(category)
+        } else if(_selectedFamily.size < 3) {
+            _selectedFamily.add(category)
+        }
+    }
+
+    fun selectWeather(category: CategoryCard) {
+        if(_selectedWeather.contains(category)) {
+            _selectedWeather.remove(category)
+        } else if(_selectedWeather.size < 1) {
+            _selectedWeather.add(category)
         }
     }
 }
