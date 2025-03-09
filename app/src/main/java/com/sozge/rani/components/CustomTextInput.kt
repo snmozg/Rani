@@ -21,11 +21,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTextInput(
+    isBigCanvas: Boolean = false,
     label: String,
     text: String,
     onValueChange: (String) -> Unit,
@@ -35,32 +37,62 @@ fun CustomTextInput(
 ) {
     val isFocused by remember { mutableStateOf(false) }
 
-    TextField(
-        singleLine = isSingleLine,
-        value = text,
-        onValueChange = onValueChange,
-        label = { Text(text = label) },
-        visualTransformation = if (!isVisual) PasswordVisualTransformation() else VisualTransformation.None,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+    if (isBigCanvas) {
+        TextField(
+            singleLine = isSingleLine,
+            value = text,
+            onValueChange = onValueChange,
+            label = { Text(text = label) },
+            visualTransformation = if (!isVisual) PasswordVisualTransformation() else VisualTransformation.None,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
 
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(400.dp)
-            .border(
-                1.dp,
-                MaterialTheme.colorScheme.primary,
-                shape = RoundedCornerShape(20.dp)
-            )
-            .clip(RoundedCornerShape(20.dp)),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(400.dp)
+                .border(
+                    1.dp,
+                    MaterialTheme.colorScheme.primary,
+                    shape = RoundedCornerShape(20.dp)
+                )
+                .clip(RoundedCornerShape(20.dp)),
 
-        colors = TextFieldDefaults.textFieldColors(
-            containerColor = MaterialTheme.colorScheme.background,
-            focusedIndicatorColor = MaterialTheme.colorScheme.primary,
-            unfocusedIndicatorColor = Color.White,
-            cursorColor = MaterialTheme.colorScheme.primary,
-            focusedLabelColor =
-            if (isFocused) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
-            unfocusedLabelColor = MaterialTheme.colorScheme.onBackground,
-        ),
-    )
+            colors = TextFieldDefaults.textFieldColors(
+                containerColor = MaterialTheme.colorScheme.background,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.background,
+                cursorColor = MaterialTheme.colorScheme.primary,
+                focusedLabelColor =
+                if (isFocused) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
+                unfocusedLabelColor = MaterialTheme.colorScheme.onBackground,
+            ),
+        )
+    } else {
+        TextField(
+            singleLine = isSingleLine,
+            value = text,
+            onValueChange = onValueChange,
+            label = { Text(text = label) },
+            visualTransformation = if (!isVisual) PasswordVisualTransformation() else VisualTransformation.None,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+                .border(
+                    1.dp,
+                    MaterialTheme.colorScheme.primary,
+                    shape = RoundedCornerShape(20.dp)
+                )
+                .clip(RoundedCornerShape(20.dp)),
+
+            colors = TextFieldDefaults.textFieldColors(
+                containerColor = MaterialTheme.colorScheme.background,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                cursorColor = MaterialTheme.colorScheme.primary,
+                focusedLabelColor =
+                if (isFocused) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
+                unfocusedLabelColor = MaterialTheme.colorScheme.onBackground,
+            ),
+        )
+    }
 }

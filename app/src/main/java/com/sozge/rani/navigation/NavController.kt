@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.sozge.rani.pages.mainpages.CategoryPage
 import com.sozge.rani.pages.mainpages.main.DreamPage
 import com.sozge.rani.pages.mainpages.ExplainPage
+import com.sozge.rani.pages.mainpages.UserInfoPage
 import com.sozge.rani.pages.mainpages.ZodiacConstellationsPage
 import com.sozge.rani.pages.mainpages.ZodiacDailyCommentPage
 import com.sozge.rani.pages.mainpages.ZodiacInfoPage
@@ -29,6 +30,8 @@ fun NavController() {
         composable(route = "HomePage") { HomePage(navController) }
         composable(route = "DreamPage") { DreamPage(navController) }
         composable(route = "ZodiacPage") { ZodiacPage(navController) }
+
+        composable(route = "UserInfoPage") { UserInfoPage(navController) }
 
         composable("ZodiacInfoPage/{horoscopeName}") { backStackEntry ->
             val horoscopeName = backStackEntry.arguments?.getString("horoscopeName") ?: "Bilinmiyor"

@@ -252,14 +252,6 @@ fun weatherList(): List<CategoryCard>{
         CategoryCard(
             image = R.drawable.weatherclear,
             text = "Açık"
-        ),
-        CategoryCard(
-            image = R.drawable.weathercloudy,
-            text = "Bulutlu"
-        ),
-        CategoryCard(
-            image = R.drawable.weatherfoggy,
-            text = "Sisli"
         )
     )
 }

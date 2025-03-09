@@ -73,6 +73,7 @@ fun ExplainPage(navController: NavController) {
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 CustomTextInput(
+                    isBigCanvas = true,
                     label = "Detaylıca Rüyandan Bahset...",
                     text = message.value,
                     onValueChange = { message.value = it },

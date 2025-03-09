@@ -105,7 +105,6 @@ fun HeaderBar(
         actions = {
             IconButton(
                 onClick = {
-                    println("User Infos Clicked")
                 },
             ) {
                 Icon(
@@ -115,7 +114,9 @@ fun HeaderBar(
                         .clickable(
                             interactionSource = interactionSource,
                             indication = null
-                        ) {},
+                        ) {
+                            navController.navigate("UserInfoPage")
+                        },
                     painter = painterResource(id = R.drawable.userinfos),
                     contentDescription = "User Infos Button",
                     tint = MaterialTheme.colorScheme.primary

@@ -16,7 +16,6 @@ fun ExpandedButton(
     text: String,
     onClick : () -> Unit
 ) {
-
     OutlinedButton(
         onClick = {
             onClick()
