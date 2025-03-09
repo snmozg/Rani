@@ -97,7 +97,7 @@ fun HomePage(navController: NavController) {
                                 Brush.horizontalGradient(
                                     colors = listOf(
                                         Color(0xFF4c0078),
-                                        Color(0xFF6A46AA),
+                                        Color(0xFF6E2E70),
 
                                     )
                                             //Color(0xFF2D086D), Color(0xFF6A46AA),
